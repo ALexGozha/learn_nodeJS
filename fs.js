@@ -22,3 +22,12 @@ fs.appendFile(filePaht, '\nHello Adain!', err =>{
     }
     console.log('file changed')
 })
+
+fs.readFile(filePaht,'utf-8', (err, content) => {
+    if(err){
+        throw err
+    }
+    console.log(content)
+    // const data = Buffer.from(content)
+    // console.log('Content:', data.toString())
+})
