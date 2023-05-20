@@ -1,22 +1,38 @@
-
-// // const chalk = require('chalk')
-// // const text = require('./data')
-
-
-// // // console.log(chalk.green(text))
-
-// console.log(__dirname)
-
-// console.log(__filename)
-
+const http = require('http')
+const fs = require('fs')
 const path = require('path')
 
-console.log('file name:', path.basename(__filename))
+const server = http.createServer((req,res) =>{
+res.end('hello')
+console.log(req.url)
 
-console.log('directory name:',path.dirname(__filename))
+// if(req.url === '/'){
+//     fs.readFile(path.join(__dirname, 'public', 'index.html'), (err,data)=>{
+//         if (err){
+//             throw err
+//         }
+//         res.writeHead(200,{
+//             'Content-Type': 'text/html'
+//         })
+//         res.end(data)
+//     })
+// }
+// else if(req.url === '/contact'){
+//     fs.readFile(path.join(__dirname, 'public', 'contact.html')), (err,data)=>{
+//         if (err){
+//             throw err
+//         }
+//         res.writeHead(200,{
+//             'Content-Type': 'text/html'
+//         })
+        
+//         res.end(data)
+//     }
+// } 
 
-console.log('file extension:',path.extname(__filename))
+    
+})
 
-console.log('Parse:', path.parse(__filename))
-
-// console.log(path.join(__dirname, 'server', 'index.html'))
+server.listen(3000,()=>{
+    console.log('Server has been startsd...')
+})
