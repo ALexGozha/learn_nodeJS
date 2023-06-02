@@ -2,11 +2,15 @@
 const express = require("express");
 // создаем приложение
 const app = express();
- 
+
+const name = process.argv[2] || 'Alex'
+
+const message = `Hello ${name}`
+
 // устанавливаем обработчик для маршрута "/"
 app.get("/", function(request, response){
  
-    response.end("Hello from Express!");
+    response.end(message);
 });
 // http://localhost:3000/
 app.get('/summa/:a/:b', async(req,res)=> {
